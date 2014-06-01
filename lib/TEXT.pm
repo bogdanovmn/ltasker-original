@@ -1,11 +1,9 @@
-package TEXT;
+package Text;
 
 use strict;
 use warnings;
+use utf8;
 
-use locale;
-use POSIX qw(setlocale LC_ALL LC_CTYPE);
-setlocale(LC_CTYPE, "ru_RU.CP1251");
 
 #
 # Replace new lines with <br>
@@ -40,50 +38,6 @@ sub replace {
 	
 	$text =~ s/$from/$to/sg;
 
-	return $text;
-}
-#
-# Cut text for preview
-#
-sub cut_top_lines { 
-    my ($text, $show_lines) = @_;
-
-    my @tmp = split(/<br>/, $text);
-    if (scalar @tmp > $show_lines) {
-        @tmp = @tmp[0..$show_lines - 1];
-        return join("<br>", @tmp);
-    }
-    else {
-        return $text;
-    }
-}
-#
-# Cut text by max chars length
-#
-sub cut_first_chars {
-	my ($text, $show_chars) = @_;
-	
-	return $text if length($text) <= $show_chars;
-	
-	my @new_text = ();
-	
-	my @lines = split(/<br>/, $text);
-	for my $line (@lines) {
-		my $new_line = '';
-		my $new_text_current_length = length join("", @new_text);
-		my @words = split(/ /, $line);
-		for my $word (@words) {
-			if ( ($new_text_current_length + length($new_line .' '. $word) ) >= $show_chars) {
-				push(@new_text, $new_line);
-				return join("<br>", @new_text);
-			}
-			else {
-				$new_line .= ' '. $word;
-			}
-		}
-		push(@new_text, $new_line);
-	}
-	
 	return $text;
 }
 #

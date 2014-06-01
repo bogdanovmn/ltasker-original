@@ -5,7 +5,7 @@ use warnings;
 use lib 'lib';
 use LTASKER;
 use LTASKER::NAVIGATION;
-use LTASKER::AUTH;
+use LTasker::Auth;
 use LTASKER::USER;
 use CGI;
 use TEMPLATE;
@@ -27,7 +27,7 @@ my $error_code = $cgi->param('error');
 
 #debug($cgi);
 
-my $auth = LTASKER::AUTH->info;
+my $auth = LTasker::Auth->info;
 my $user = LTASKER::USER->choose($auth->user_data->{user_id});
 
 if ($auth->success_in) {
