@@ -15,7 +15,7 @@ my $ltasker = $params->{ltasker};
 
 my $projects = $ltasker->load_projects;
 my $tpl = TEMPLATE->new('projects.tpl');
-$tpl->params(
+return {
 	permission_failed => $permission_failed,
 	projects => $projects,
 	%{$ltasker->user_data}

@@ -64,7 +64,7 @@ elsif ($action eq "edit") {
 	#debug(\%helpers);
 	#debug($task->info);
 	my $tpl = TEMPLATE->new('task_edit.tpl');
-	$tpl->params(
+	return {
 		%helpers,
 		%{$task->info},
 		%{$ltasker->user_data}
@@ -87,7 +87,7 @@ else {
 	my $tpl = TEMPLATE->new('task_new.tpl');
 	#debug($project->info);
 	$helpers{components} = $project->components;
-	$tpl->params(
+	return {
 		%helpers,
 		%{$project_info},
 		%{$ltasker->user_data}

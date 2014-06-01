@@ -23,7 +23,7 @@ my $tasks = $project->tasks(for_html => 1);
 my $tpl = TEMPLATE->new('tasks.tpl');
 #debug($cgi);
 #debug($project->info);
-$tpl->params(
+return {
 	project_id => $project_id,
 	tasks => $tasks,
 	tasks_list => 1,

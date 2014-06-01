@@ -40,7 +40,7 @@ if ($auth->success_in) {
 	}
 	else {
 		my $tpl = TEMPLATE->new('user_edit.tpl');
-		$tpl->params(
+		return {
 			user_view => 1,
 			new => $action eq "edit" ? undef : 1,
 			error_msg => $error_codes{$error_code},
@@ -61,7 +61,7 @@ else {
 }
 
 my $tpl = TEMPLATE->new('user_edit.tpl');
-$tpl->params(
+return {
 	user_view => 1,
 	new => $action eq "edit" ? undef : 1,
 	error_msg => $error_codes{$error_code},

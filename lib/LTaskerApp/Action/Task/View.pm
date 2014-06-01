@@ -18,7 +18,7 @@ $ltasker->permission(task_id => $task_id);
 my $task = LTasker::Task->choose($task_id);
 
 my $tpl = TEMPLATE->new('task.tpl');
-$tpl->params(
+return {
 	%{$task->info(for_html => 1)},
 	%{$ltasker->user_data}
 );

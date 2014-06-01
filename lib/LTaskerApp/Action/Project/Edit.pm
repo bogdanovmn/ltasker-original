@@ -39,7 +39,7 @@ if ($action eq "add") {
 }
 elsif ($action eq "edit") {
 	my $tpl = TEMPLATE->new('project_edit.tpl');
-	$tpl->params(
+	return {
 		p_components => $project->components,
 		%{$project->info},
 		%{$ltasker->user_data}
@@ -66,7 +66,7 @@ elsif ($action eq "del_component") {
 }
 else {
 	my $tpl = TEMPLATE->new('project_new.tpl');
-	$tpl->params(
+	return {
 		%{$ltasker->user_data}
 	);
 	$tpl->show;

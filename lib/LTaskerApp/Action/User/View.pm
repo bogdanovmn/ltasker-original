@@ -12,7 +12,7 @@ use ERRORS;
 my $ltasker = $params->{ltasker};
 
 my $tpl = TEMPLATE->new('user.tpl');
-$tpl->params(
+return {
 	user_view => 1,
 	%{$ltasker->user_data}
 );
