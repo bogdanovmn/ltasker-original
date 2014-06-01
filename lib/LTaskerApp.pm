@@ -48,6 +48,15 @@ hook 'before' => sub {
 
 };
 
+hook 'before_template_render' => sub {
+	my ($template_params) = @_;
+
+
+	while (my ($k, $v) = each %{vars->{ltasker}->user_data}) {
+		$template_params->{$k} = $v;
+	}
+};
+
 
 get '/login/' => sub { controller(template => 'login', action => 'Auth::Form') };
 

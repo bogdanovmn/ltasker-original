@@ -2,8 +2,9 @@ package LTasker::Project;
 
 use strict;
 use warnings;
-use ERRORS;
-use TEXT;
+use utf8;
+
+use Text;
 
 use base "LTasker::DB";
 
@@ -29,12 +30,12 @@ sub info {
 		FROM project 
 		WHERE id = ? 
 		|,
-		$self->{id}
+		[ $self->{id} ]
 	);
 	
 	if ($p{for_html}) {
 		for (my $i = 0; $i < scalar @$info; $i++) {
-			$info->[$i]->{p_description} = TEXT::convert_to_html($info->[$i]->{p_description});
+			$info->[$i]->{p_description} = Text::convert_to_html($info->[$i]->{p_description});
 		}
 	}
 	
@@ -64,12 +65,12 @@ sub tasks {
 		LEFT JOIN component c ON t.component = c.id
 		WHERE t.project_id = ? 
 		|,
-		$self->{id}
+		[ $self->{id} ]
 	);
 	
 	if ($p{for_html}) {
 		for (my $i = 0; $i < scalar @$tasks; $i++) {
-			$tasks->[$i]->{description} = TEXT::convert_to_html($tasks->[$i]->{description});
+			$tasks->[$i]->{description} = Text::convert_to_html($tasks->[$i]->{description});
 		}
 	}
 	
@@ -93,7 +94,7 @@ sub add_task {
 			type = ?, 
 			component = ?
 		|,
-		$p{name}, $p{description}, $self->{id}, $p{owner}, $p{owner}, $p{priority}, $p{type}, $p{component}
+		[ $p{name}, $p{description}, $self->{id}, $p{owner}, $p{owner}, $p{priority}, $p{type}, $p{component} ]
 	);
 }
 #
@@ -103,7 +104,7 @@ sub components {
 	my ($self, %p) = @_;
 	my $components = $self->query(
 		qq| SELECT * FROM component WHERE project_id = ? |,
-		$self->{id}
+		[ $self->{id} ]
 	);
 	return $components;
 }
@@ -118,7 +119,7 @@ sub add_component {
 		SET	name = ?,
 			project_id = ?
 		|,
-		$p{name}, $self->{id}
+		[ $p{name}, $self->{id} ]
 	);
 }
 #
@@ -132,7 +133,7 @@ sub del_component {
 		WHERE id = ?
 		AND project_id = ?
 		|,
-		$p{id}, $self->{id}
+		[ $p{id}, $self->{id} ]
 	);
 }
 #
@@ -147,7 +148,8 @@ sub update {
 			description = ?
 		WHERE id = ?
 		|,
-		$p{name}, $p{description}, $self->{id}
+		[ $p{name}, $p{description}, $self->{id} ]
 	);
 }
+
 1;

@@ -3,7 +3,6 @@ package LTasker::History;
 use strict;
 use warnings;
 use utf8;
-use LTasker;
 
 use constant H_EVENT => { 
 	comment => 1,
@@ -36,7 +35,7 @@ sub add {
 			event = ?,
 			comment = ?
 		|,
-		$self->{task_id}, $p{event}, $p{comment}
+		[ $self->{task_id}, $p{event}, $p{comment} ]
 	);
 }
 #
@@ -51,7 +50,7 @@ sub load {
 		WHERE task_id = ?
 		ORDER BY th.id DESC
 		|,
-		$self->{task_id}
+		[ $self->{task_id} ]
 	);
 
 	return $events;

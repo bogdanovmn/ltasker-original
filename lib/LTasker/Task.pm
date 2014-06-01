@@ -2,13 +2,15 @@ package LTasker::Task;
 
 use strict;
 use warnings;
-use ERRORS;
-use TEXT;
+use utf8;
 
-use constant STATUS_OPEN => 1;
+use Text;
+
+use constant STATUS_OPEN  => 1;
 use constant STATUS_CLOSE => 2;
 
 use base "LTasker::History";
+
 
 sub choose {
 	my ($class, $id) = @_;
@@ -52,12 +54,12 @@ sub info {
 		JOIN helper_task_priority htp ON htp.id = t.priority
 		LEFT JOIN component c ON c.id = t.component
 		WHERE t.id = ? |,
-		$self->{task_id}
+		[ $self->{task_id} ]
 	);
 	
 	if ($p{for_html}) {
 		for (my $i = 0; $i < scalar @$info; $i++) {
-			$info->[$i]->{t_description} = TEXT::convert_to_html($info->[$i]->{t_description});
+			$info->[$i]->{t_description} = Text::convert_to_html($info->[$i]->{t_description});
 		}
 	}
 	
@@ -79,7 +81,7 @@ sub update {
 		WHERE id = ?
 			
 		|,
-		$p{name}, $p{description}, $p{priority}, $p{type}, $p{component}, $self->{task_id}
+		[ $p{name}, $p{description}, $p{priority}, $p{type}, $p{component}, $self->{task_id} ]
 	);
 }
 #
@@ -96,7 +98,7 @@ sub set_status {
 			$close_value
 		WHERE id = ?
 		|,
-		$status, $self->{task_id}
+		[ $status, $self->{task_id} ]
 	);
 }
 #
@@ -144,7 +146,7 @@ sub components {
 		JOIN task t ON c.project_id = t.project_id
 		WHERE t.id = ? 
 		|,
-		$self->{task_id}
+		[ $self->{task_id} ]
 	);
 	
 	if (defined $p{selected}) {

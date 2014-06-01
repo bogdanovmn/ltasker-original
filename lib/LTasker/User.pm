@@ -2,11 +2,12 @@ package LTasker::User;
 
 use strict;
 use warnings;
-use ERRORS;
+use utf8;
 
 use base "LTasker::DB";
 #
 # User object constructor
+#
 sub choose {
 	my ($class, $id) = @_;
 
@@ -25,7 +26,7 @@ sub info {
 		SELECT *
 		FROM user
 		WHERE id = ? |,
-		$self->{user_id}
+		[ $self->{user_id} ]
 	);
 	
 	return $info->[0];
@@ -42,7 +43,7 @@ sub add {
 			email = ?,
 			password_hash = MD5(?)
 		|,
-		$p{name}, $p{email}, $p{password}
+		[ $p{name}, $p{email}, $p{password} ]
 	);
 }
 #
@@ -58,7 +59,7 @@ sub update {
 		WHERE id = ?
 			
 		|,
-		$p{name}, $p{email}, $self->{user_id}
+		[ $p{name}, $p{email}, $self->{user_id} ]
 	);
 }
 

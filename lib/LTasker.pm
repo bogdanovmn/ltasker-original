@@ -2,11 +2,9 @@ package LTasker;
 
 use strict;
 use warnings;
-use CGI;
-use ERRORS;
-use LTasker::NAVIGATION;
+use utf8;
+
 use LTasker::Project;
-use LTasker::VERSION;
 #
 # Parent
 #
@@ -17,24 +15,7 @@ use base 'LTasker::Auth';
 sub enter {
 	my ($class, %p) = @_;
 
-	my $self = LTasker::Auth::info($class);
-	if ($self->success_in) {
-		return $self;
-	}
-	else {
-		if ($p{auth_failed_redirect}) {
-			return $self;
-		}
-		else {
-			lt_goto(URL_LOGIN, auth_failed => 1);
-		}
-	}
-}
-#
-# Return system version
-#
-sub version {
-	return LTasker::VERSION::get();
+	return LTasker::Auth::info($class);
 }
 #
 # Check permission
@@ -46,22 +27,20 @@ sub permission {
 	if ($p{project_id}) {
 		$result = scalar @{$self->query(qq|
 			SELECT 1 FROM project WHERE id = ? AND owner = ? |,
-			$p{project_id}, $self->{user_id} 
+			[ $p{project_id}, $self->{user_id} ] 
 		)};
 	}
 	if ($p{task_id}) {
 		$result = scalar @{$self->query(qq|
 			SELECT 1 FROM task WHERE id = ? AND owner = ? |,
-			$p{task_id}, $self->{user_id} 
+			[ $p{task_id}, $self->{user_id} ]
 		)};
 	}
 	if ($p{user_id}) {
 		$result = $p{user_id} eq $self->{user_id};#debug($result);
 	}
 
-	lt_goto(URL_PROJECTS, permission_failed => 1) unless $result;
-	
-	return 0;
+	return $result;
 }
 #
 #
@@ -71,7 +50,7 @@ sub load_projects {
 	
 	my $projects = $self->query(qq|
 		SELECT * FROM project WHERE owner = ? ORDER BY id DESC |,
-		$self->{user_id}
+		[ $self->{user_id} ]
 	);
 	return $projects;
 }
@@ -87,7 +66,7 @@ sub add_project {
 			description = ?,
 			owner = ? 
 		|,
-		$p{name}, $p{description}, $self->{user_id}
+		[ $p{name}, $p{description}, $self->{user_id} ]
 	);
 
 	my $project_id = $self->_last_add_id;

@@ -3,13 +3,9 @@ package LTasker::Auth;
 use strict;
 use warnings;
 use utf8;
-use CGI;
-use CGI::Session;
+
 use Digest::MD5 qw( md5_hex );
-use LTasker;
-use LTasker::NAVIGATION;
 use LTasker::User;
-use ERRORS;
 
 use base 'LTasker::DB';
 
@@ -22,16 +18,15 @@ sub info {
 	my $self = LTasker::DB::connect($class);
 
 	$self->{user_auth} = 0;
-	$self->{user_id} = 0;
-	$self->{session} = CGI::Session->new;
-	$self->{login_error_msg} = "";
+	$self->{user_id}   = 0;
+	$self->{session}   = $p{session};
 
-	if (defined $self->{session}->param("user_id")) {
-		my $user = LTasker::User->choose($self->{session}->param("user_id"));
+	if ($self->{session}("user_id")) {
+		my $user = LTasker::User->choose($self->{session}("user_id"));
 		my $user_info = $user->info;
-		$self->{user_auth} = $self->{session}->param("user_auth"),
-		$self->{user_id} = $self->{session}->param("user_id"),
-		$self->{user_name} = $user_info->{name},
+		$self->{user_auth}  = $self->{session}("user_auth"),
+		$self->{user_id}    = $self->{session}("user_id"),
+		$self->{user_name}  = $user_info->{name},
 		$self->{user_email} = $user_info->{email}
 	}
 
@@ -43,47 +38,35 @@ sub info {
 sub login {
 	my ($self, %p) = @_;
 
-	if (!$p{user_name} or !$p{password}) {
-		$self->{login_error_msg} = "Введите логин и пароль!";
-		return 0;
+	if (not $p{user_name} or not $p{password}) {
+		return $self->error("Введите логин и пароль!");
 	}
 
 	my $user_query_result = $self->query(
 		qq| SELECT * FROM user WHERE name = ? AND password_hash = ? |,
-		$p{user_name}, md5_hex($p{password})
+		[ $p{user_name}, md5_hex($p{password}) ]
 	);	
 
 	if (@$user_query_result) {
 		my $user = $user_query_result->[0];
-		$self->{session}->param("user_id", $user->{id});
-		#$self->{session}->param("user_name", $user->{name});
-		#$self->{session}->param("user_email", $user->{email});
-		$self->{session}->param("user_auth", 1);
-		$self->{session}->expire('1M');
+		$self->{session}("user_id", $user->{id});
+		$self->{session}("user_auth", 1);
 	}
 	else {
-		$self->{login_error_msg} = "Неправильный логин/пароль";
-		return 0;
+		return $self->error("Неправильный логин/пароль");
 	}
 
-	my @cookie_header = split(/\n/, $self->{session}->header);
-	print $cookie_header[0];
-	print $cookie_header[1];
-	lt_goto(URL_PROJECTS);
-	
 	return 1;
 }
-
 #
 # Logout from the system
 #
 sub logout {
 	my ($self, %p) = @_; 
 	
-	$self->{session}->delete;
-	$self->{session}->flush;
+	$self->{session}->()->destroy;
 
-	return undef;
+	return 1;
 }
 #
 #
@@ -95,46 +78,14 @@ sub success_in {
 #
 #
 #
-sub login_error_msg {
-	my ($self, %p) = @_;
-	return $self->{login_error_msg};
-}
-#
-#
-#
 sub user_data {
 	my ($self, %p) = @_;
 	return {
-		user_auth => $self->{user_auth},
-		user_id => $self->{user_id},
-		user_name => $self->{user_name},
+		user_auth  => $self->{user_auth},
+		user_id    => $self->{user_id},
+		user_name  => $self->{user_name},
 		user_email => $self->{user_email}
 	};
-}
-#
-# Get all sessions 
-#
-sub online_list {
-	my ($self) = @_;
-
-	my @sessions = ();
-
-	CGI::Session->find( sub { 
-		my $ses = shift;
-		if (defined $ses->param("user_auth") and ($ses->param("user_auth") eq 1 ) and (not $ses->is_expired)) {
-			push(@sessions, { 
-				o_user_id => $ses->param("user_id"),
-				o_user_name => $ses->param("user_name"),
-				o_action_time => time - $ses->atime
-			}) if (time - $ses->atime) < 600; 
-		}
-		else {
-			$ses->delete;
-			$ses->flush;
-		}
-	});
-
-	return \@sessions;
 }
 
 1;
