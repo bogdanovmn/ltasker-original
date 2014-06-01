@@ -3,13 +3,13 @@
 <form name=task method=post>
 	<table class=view>
 		<tr>
-			<th class=title>Задача
+			<th class=title>Р—Р°РґР°С‡Р°
 			<th class=close><a href="<TMPL_VAR NAME='web_root'>task.cgi?task_id=<TMPL_VAR NAME='t_id'>">X</a>
 		<tr>
-			<td>Кратко:
+			<td>РљСЂР°С‚РєРѕ:
 			<td><input class="validate[required,length[10,255]] text-input" size=91 type=text name=name value='<TMPL_VAR NAME="t_name">'>
 		<tr>
-			<td>Тип:
+			<td>РўРёРї:
 			<td>
 				<select name=type>
 					<TMPL_LOOP NAME="types">
@@ -17,7 +17,7 @@
 					</TMPL_LOOP>
 				</select>
 		<tr>
-			<td>Компонент:
+			<td>РљРѕРјРїРѕРЅРµРЅС‚:
 			<td>
 				<select name=component>
 					<TMPL_LOOP NAME="components">
@@ -25,7 +25,7 @@
 					</TMPL_LOOP>
 				</select>
 		<tr>
-			<td>Приоритет:
+			<td>РџСЂРёРѕСЂРёС‚РµС‚:
 			<td>
 				<select name=priority>
 					<TMPL_LOOP NAME="priorities">
@@ -33,12 +33,12 @@
 					</TMPL_LOOP>
 				</select>
 		<tr>
-			<td>Детали:
+			<td>Р”РµС‚Р°Р»Рё:
 			<td><textarea class="validate[required,length[10,3000]] text-input" cols=70 rows=20 name=description><TMPL_VAR NAME="t_description"></textarea>
 		
 		<tr>
 		<th colspan=2 class=action>
-			<input type=submit name=task_submit value='Изменить'>
+			<input type=submit name=task_submit value='РР·РјРµРЅРёС‚СЊ'>
 	</table>
 	<input type=hidden name=action value='update'>
 	<input type=hidden name=task_id value='<TMPL_VAR NAME="t_id">'>

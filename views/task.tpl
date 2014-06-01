@@ -2,26 +2,26 @@
 
 <table class=view>
 	<tr>
-		<th class=title>Задача
+		<th class=title>Р—Р°РґР°С‡Р°
 		<th class=close><a href="<TMPL_VAR NAME='web_root'>tasks.cgi?project_id=<TMPL_VAR NAME='p_id'>">X</a>
 	<tr>	
-		<td>Кратко: 
+		<td>РљСЂР°С‚РєРѕ: 
 		<td><TMPL_VAR NAME="t_name">	
 	<tr>
-		<td>Тип:
+		<td>РўРёРї:
 		<td><TMPL_VAR NAME="t_type_name">
 	<tr>
-		<td>Компонент:
+		<td>РљРѕРјРїРѕРЅРµРЅС‚:
 		<td><TMPL_VAR NAME="t_component_name">
 	<tr>
-		<td>Приоритет:
+		<td>РџСЂРёРѕСЂРёС‚РµС‚:
 		<td><TMPL_VAR NAME="t_priority_name">
 	<tr>
-		<td>Детали:
+		<td>Р”РµС‚Р°Р»Рё:
 		<td><TMPL_VAR ESCAPE="NONE" NAME="t_description">
 	<tr>
 		<th colspan=2 class=action>
-			<a href="<TMPL_VAR NAME='web_root'>task_edit.cgi?task_id=<TMPL_VAR NAME='t_id'>&action=edit">Редактировать</a>
+			<a href="<TMPL_VAR NAME='web_root'>task_edit.cgi?task_id=<TMPL_VAR NAME='t_id'>&action=edit">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>
 </table>
 
 <TMPL_INCLUDE NAME='foot.tpl'>

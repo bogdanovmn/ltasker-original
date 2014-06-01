@@ -22,7 +22,7 @@ $auth_failed_redirect = 1 if $action eq "in";
 
 my $ltasker = LTASKER->enter(auth_failed_redirect => $auth_failed_redirect);
 
-my $error_msg = $auth_failed_redirect ? "Необходимо прологиниться!" : undef;
+my $error_msg = $auth_failed_redirect ? "РќРµРѕР±С…РѕРґРёРјРѕ РїСЂРѕР»РѕРіРёРЅРёС‚СЊСЃСЏ!" : undef;
 
 if ($ltasker->success_in) {
 	if ($action eq "out") {

@@ -3,32 +3,32 @@
 <form name=project method=post>
 	<table class=view>
 		<tr>
-			<th class=title>Проект
+			<th class=title>РџСЂРѕРµРєС‚
 			<th class=close><a href="<TMPL_VAR NAME='web_root'>project_view.cgi?project_id=<TMPL_VAR NAME='p_id'>">X</a>
 		<tr>
-			<td>Название:
+			<td>РќР°Р·РІР°РЅРёРµ:
 			<td><input class="validate[required] text-input" size=50 type=text name=name value='<TMPL_VAR NAME="p_name">'>
 		
 		<tr>
-			<td>Описание:
+			<td>РћРїРёСЃР°РЅРёРµ:
 			<td><textarea class="validate[required,length[10,3000]] text-input" cols=50 rows=10 name=description><TMPL_VAR NAME="p_description"></textarea>
 			
 		<tr>
-			<td>Компоненты:
+			<td>РљРѕРјРїРѕРЅРµРЅС‚С‹:
 			<td><TMPL_LOOP NAME="p_components">
 					<TMPL_VAR NAME="name"> 
-					[ <a href="<TMPL_VAR NAME='web_root'>project_edit.cgi?action=del_component&project_id=<TMPL_VAR NAME='project_id'>&component_id=<TMPL_VAR NAME='id'>">Удалить</a> ]<br>
+					[ <a href="<TMPL_VAR NAME='web_root'>project_edit.cgi?action=del_component&project_id=<TMPL_VAR NAME='project_id'>&component_id=<TMPL_VAR NAME='id'>">РЈРґР°Р»РёС‚СЊ</a> ]<br>
 				</TMPL_LOOP>
 		<tr>
-			<td>Новые компоненты:
+			<td>РќРѕРІС‹Рµ РєРѕРјРїРѕРЅРµРЅС‚С‹:
 			<td>
 			<textarea name=new_components cols=20 rows=7></textarea>
 			<br>
-			<input type=submit name=component_submit value='Добавить'>
+			<input type=submit name=component_submit value='Р”РѕР±Р°РІРёС‚СЊ'>
 		
 		<tr>
 		<th colspan=2 class=action>
-			<input type=submit name=project_submit value='Изменить'>
+			<input type=submit name=project_submit value='РР·РјРµРЅРёС‚СЊ'>
 	</table>
 	<input type=hidden name=project_id value="<TMPL_VAR NAME='p_id'>">
 	<input type=hidden name=action value="update">

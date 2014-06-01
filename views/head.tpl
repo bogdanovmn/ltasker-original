@@ -34,21 +34,21 @@
 	<table class=top_menu>
 		<tr>
 			<td class=user>
-				Захотелось поработать, <a href="<TMPL_VAR NAME='web_root'>user.cgi?user_id=<TMPL_VAR NAME='user_id'>"><TMPL_VAR NAME="user_name"></a>?
+				Р—Р°С…РѕС‚РµР»РѕСЃСЊ РїРѕСЂР°Р±РѕС‚Р°С‚СЊ, <a href="<TMPL_VAR NAME='web_root'>user.cgi?user_id=<TMPL_VAR NAME='user_id'>"><TMPL_VAR NAME="user_name"></a>?
 			<td class=menu>
-				<a href="<TMPL_VAR NAME='web_root'>projects.cgi">Проекты</a>
+				<a href="<TMPL_VAR NAME='web_root'>projects.cgi">РџСЂРѕРµРєС‚С‹</a>
 				<TMPL_IF NAME='p_id'>
 					:: <a href="<TMPL_VAR NAME='web_root'>project_view.cgi?project_id=<TMPL_VAR NAME='p_id'>"><TMPL_VAR NAME='p_name'></a>
-					:: <a href="<TMPL_VAR NAME='web_root'>tasks.cgi?project_id=<TMPL_VAR NAME='p_id'>">Задачи</a>
+					:: <a href="<TMPL_VAR NAME='web_root'>tasks.cgi?project_id=<TMPL_VAR NAME='p_id'>">Р—Р°РґР°С‡Рё</a>
 					<TMPL_IF NAME="tasks_list">
-						:: <a href="<TMPL_VAR NAME='web_root'>task_edit.cgi?project_id=<TMPL_VAR NAME='p_id'>">Новая задача</a>
+						:: <a href="<TMPL_VAR NAME='web_root'>task_edit.cgi?project_id=<TMPL_VAR NAME='p_id'>">РќРѕРІР°СЏ Р·Р°РґР°С‡Р°</a>
 					</TMPL_IF>
 				<TMPL_ELSE>
 					<TMPL_IF NAME="user_view">
-						| <a href="<TMPL_VAR NAME='web_root'>user.cgi">Профиль</a> 
-						:: <a href="<TMPL_VAR NAME='web_root'>user_edit.cgi?action=edit">Редактировать</a>
+						| <a href="<TMPL_VAR NAME='web_root'>user.cgi">РџСЂРѕС„РёР»СЊ</a> 
+						:: <a href="<TMPL_VAR NAME='web_root'>user_edit.cgi?action=edit">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>
 					<TMPL_ELSE>
-						:: <a href="<TMPL_VAR NAME='web_root'>project_edit.cgi?action=new">Создать новый</a>
+						:: <a href="<TMPL_VAR NAME='web_root'>project_edit.cgi?action=new">РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№</a>
 					</TMPL_IF>
 				</TMPL_IF>
 			<td class=logout>

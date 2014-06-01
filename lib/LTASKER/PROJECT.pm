@@ -51,7 +51,7 @@ sub tasks {
 			DATE_FORMAT(t.create_date, '%Y-%m-%d') create_date, 
 			IFNULL(DATE_FORMAT(t.close_date, '%Y-%m-%d'), '-') close_date, 
 			CASE t.status WHEN 1 THEN 'close' ELSE 'open' END status_action,
-			CASE t.status WHEN 1 THEN 'Закрыть' ELSE 'Открыть' END status_action_name,
+			CASE t.status WHEN 1 THEN 'Р—Р°РєСЂС‹С‚СЊ' ELSE 'РћС‚РєСЂС‹С‚СЊ' END status_action_name,
 			t.project_id,
 			hts.name status,
 			htt.name type,

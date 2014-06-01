@@ -7,20 +7,20 @@
 	<form name=login method=post>
 		<table class=view>
 			<tr>
-				<th class=title colspan=2>Авторизация
+				<th class=title colspan=2>РђРІС‚РѕСЂРёР·Р°С†РёСЏ
 			<tr>
-			<td>Имя:
+			<td>РРјСЏ:
 			<td><input class="validate[required] text-input" size=14 type=text name=name value=''>
 			
 			<tr>
-			<td>Пароль:
+			<td>РџР°СЂРѕР»СЊ:
 			<td><input class="validate[required] text-input" size=14 type=password name=password value=''>
 			
 			<tr>
 				<th class=action>
-					<a href="<TMPL_VAR NAME='web_root'>user_edit.cgi">Регистрация</a>
+					<a href="<TMPL_VAR NAME='web_root'>user_edit.cgi">Р РµРіРёСЃС‚СЂР°С†РёСЏ</a>
 				<th class=action>
-					<input type=submit name=login_submit value='Войти'> 
+					<input type=submit name=login_submit value='Р’РѕР№С‚Рё'> 
 		</table>
 		<input type=hidden name=action value='in'>
 	</form>

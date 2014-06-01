@@ -25,7 +25,7 @@ sub debug {
 	my ($msg) = @_;
 	my $tpl = TEMPLATE->new('error.tpl');
 	$tpl->params(
-		msg => "Îòëàäêà",
+		msg => "ÐžÑ‚Ð»Ð°Ð´ÐºÐ°",
 		debug => Dumper($msg)
 		);
 	$tpl->show;

@@ -7,20 +7,20 @@
 <form method=post>
 	<table class=view>
 		<tr>
-			<th class=title>Пользователь
+			<th class=title>РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ
 			<th class=close><a href="<TMPL_VAR NAME='web_root'>user.cgi">X</a>
 		<tr>	
-			<td>Имя 
+			<td>РРјСЏ 
 			<td><input class="validate[required,length[3,50]] text-input" type=text name=login value='<TMPL_VAR NAME="user_name">'>	
 		<tr>
 			<td>email:
 			<td><input class="validate[required] text-input" type=text name=email value='<TMPL_VAR NAME="user_email">'>
 		<TMPL_IF NAME="new">
 			<tr>
-				<td>Пароль:
+				<td>РџР°СЂРѕР»СЊ:
 				<td><input class="validate[required,length[6,12]] text-input" type=password name=password id=password value=''>
 			<tr>
-				<td>Пароль (повтор):
+				<td>РџР°СЂРѕР»СЊ (РїРѕРІС‚РѕСЂ):
 				<td><input class="validate[required,confirm[password]] text-input" type=password name=password_verify value=''-->
 		</TMPL_IF>
 		<tr>

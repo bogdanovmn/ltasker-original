@@ -3,15 +3,15 @@
 <form name=task method=post>
 	<table class=view>
 		<tr>
-			<th class=title>Новая задача
+			<th class=title>РќРѕРІР°СЏ Р·Р°РґР°С‡Р°
 			<th class=close><a href="<TMPL_VAR NAME='web_root'>tasks.cgi?project_id=<TMPL_VAR NAME='p_id'>">X</a>
 			
 		<tr>
-			<td>Кратко:
+			<td>РљСЂР°С‚РєРѕ:
 			<td><input class="validate[required,length[10,255]] text-input" size=50 type=text name=name value=''>
 		
 		<tr>
-			<td>Тип:
+			<td>РўРёРї:
 			<td>
 				<select name=type>
 					<TMPL_LOOP NAME="types">
@@ -19,7 +19,7 @@
 					</TMPL_LOOP>
 				</select>
 		<tr>	
-			<td>Компонент:
+			<td>РљРѕРјРїРѕРЅРµРЅС‚:
 			<td>
 				<select name=component>
 					<TMPL_LOOP NAME="components">
@@ -27,7 +27,7 @@
 					</TMPL_LOOP>
 				</select>
 		<tr>	
-			<td>Приоритет:
+			<td>РџСЂРёРѕСЂРёС‚РµС‚:
 			<td>
 				<select name=priority>
 					<TMPL_LOOP NAME="priorities">
@@ -36,12 +36,12 @@
 				</select>
 		
 		<tr>
-			<td>Описание:
+			<td>РћРїРёСЃР°РЅРёРµ:
 			<td><textarea class="validate[required,length[10,3000]] text-input" cols=50 rows=10 name=description></textarea>
 		
 		<tr>
 			<th colspan=2 class=action>
-				<input type=submit name=task_submit value='Добавить'>
+				<input type=submit name=task_submit value='Р”РѕР±Р°РІРёС‚СЊ'>
 	</table>
 	<input type=hidden name=action value='add'>
 	<input type=hidden name=project_id value='<TMPL_VAR NAME="p_id">'>

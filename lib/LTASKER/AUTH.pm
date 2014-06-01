@@ -44,7 +44,7 @@ sub login {
 	my ($self, %p) = @_;
 
 	if (!$p{user_name} or !$p{password}) {
-		$self->{login_error_msg} = "Введите логин и пароль!";
+		$self->{login_error_msg} = "Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ Рё РїР°СЂРѕР»СЊ!";
 		return 0;
 	}
 
@@ -62,7 +62,7 @@ sub login {
 		$self->{session}->expire('1M');
 	}
 	else {
-		$self->{login_error_msg} = "Неправильный логин/пароль";
+		$self->{login_error_msg} = "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ Р»РѕРіРёРЅ/РїР°СЂРѕР»СЊ";
 		return 0;
 	}
 

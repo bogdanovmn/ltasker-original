@@ -12,7 +12,7 @@ use ERRORS;
 sub connect {
 	my ($class, %p) = @_;
 
-	my $dbh = DBI->connect("dbi:mysql:".DB_CONF::NAME, DB_CONF::USER, DB_CONF::PASS) or ERRORS::html_error("Что то с базой данных...");
+	my $dbh = DBI->connect("dbi:mysql:".DB_CONF::NAME, DB_CONF::USER, DB_CONF::PASS) or ERRORS::html_error("Р§С‚Рѕ С‚Рѕ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…...");
 	my $self = { dbh => $dbh };
 
 	$dbh->do("SET NAMES cp1251");
@@ -29,7 +29,7 @@ sub query {
 	$sth->execute(@params);
 	
 	if ($sth->err) {
-        ERRORS::html_error("Ошибка sql-запроса");
+        ERRORS::html_error("РћС€РёР±РєР° sql-Р·Р°РїСЂРѕСЃР°");
     }
 
 	#if ($sql =~ /^\s*select/i) { debug("1 ". $sql); } else { debug("2 ". $sql); }

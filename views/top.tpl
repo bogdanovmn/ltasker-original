@@ -5,9 +5,9 @@
 <tr>
 	<!-- LOGO -->
 	<td class=lozung>
-		<img alt='ÏÑÈÕÓÞØÊÀ.COM' src='/img/medical_car_green.gif'>
+		<img alt='ÐŸÐ¡Ð˜Ð¥Ð£Ð®Ð¨ÐšÐ.COM' src='/img/medical_car_green.gif'>
 	<td class=logo>
-		<img alt='ÏÑÈÕÓÞØÊÀ.COM' src='/img/ncuxywka_com.jpg'>
+		<img alt='ÐŸÐ¡Ð˜Ð¥Ð£Ð®Ð¨ÐšÐ.COM' src='/img/ncuxywka_com.jpg'>
 <tr>
 	<!-- Navigation -->
 	<td class=menu>

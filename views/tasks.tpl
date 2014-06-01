@@ -23,13 +23,13 @@
 	<table id=tasks class=tasks>
 		<thead>
 		<tr>
-			<th>Кратко
-			<th>Тип
-			<th>Приоритет
-			<th>Компонент
-			<th>Создана
-			<th>Статус
-			<th>Закрыта
+			<th>РљСЂР°С‚РєРѕ
+			<th>РўРёРї
+			<th>РџСЂРёРѕСЂРёС‚РµС‚
+			<th>РљРѕРјРїРѕРЅРµРЅС‚
+			<th>РЎРѕР·РґР°РЅР°
+			<th>РЎС‚Р°С‚СѓСЃ
+			<th>Р—Р°РєСЂС‹С‚Р°
 			<th>...
 		</thead>
 		<tbody>
@@ -38,7 +38,7 @@
 			<td class=name>
 				<a 
 					href="<TMPL_VAR NAME='web_root'>task.cgi?task_id=<TMPL_VAR NAME='id'>" 
-					title='<b>Детали задачи:</b><br><br><TMPL_VAR NAME="description">'
+					title='<b>Р”РµС‚Р°Р»Рё Р·Р°РґР°С‡Рё:</b><br><br><TMPL_VAR NAME="description">'
 					name=helper
 				>
 					<TMPL_VAR NAME="name"><TMPL_VAR NAME="ver">
@@ -68,7 +68,7 @@
 		);
 	</script>
 <TMPL_ELSE>
-	<h2>Список задач пуст. <a href="<TMPL_VAR NAME='web_root'>task_edit.cgi?project_id=<TMPL_VAR NAME='p_id'>">Открыть задачу</a></h2>
+	<h2>РЎРїРёСЃРѕРє Р·Р°РґР°С‡ РїСѓСЃС‚. <a href="<TMPL_VAR NAME='web_root'>task_edit.cgi?project_id=<TMPL_VAR NAME='p_id'>">РћС‚РєСЂС‹С‚СЊ Р·Р°РґР°С‡Сѓ</a></h2>
 </TMPL_IF>
 
 <TMPL_INCLUDE NAME='foot.tpl'>
