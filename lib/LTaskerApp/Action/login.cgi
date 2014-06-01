@@ -20,7 +20,7 @@ my $auth_failed_redirect = $params->{auth_failed} || 0;
 
 $auth_failed_redirect = 1 if $action eq "in";
 
-my $ltasker = LTasker->enter(auth_failed_redirect => $auth_failed_redirect);
+my $ltasker = $params->{ltasker}(auth_failed_redirect => $auth_failed_redirect);
 
 my $error_msg = $auth_failed_redirect ? "Необходимо прологиниться!" : undef;
 

@@ -9,7 +9,7 @@ use LTasker::User;
 use TEMPLATE;
 use ERRORS;
 
-my $ltasker = LTasker->enter;
+my $ltasker = $params->{ltasker};
 
 my $tpl = TEMPLATE->new('user.tpl');
 $tpl->params(

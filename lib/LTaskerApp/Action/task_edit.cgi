@@ -11,7 +11,7 @@ use CGI;
 use TEMPLATE;
 use ERRORS;
 
-my $ltasker = LTasker->enter;
+my $ltasker = $params->{ltasker};
 
 my $cgi = CGI->new;
 my $action = $params->{action} || "none";

@@ -11,7 +11,7 @@ use ERRORS;
 my $cgi = CGI->new;
 my $permission_failed = $params->{permission_failed};
 
-my $ltasker = LTasker->enter;
+my $ltasker = $params->{ltasker};
 
 my $projects = $ltasker->load_projects;
 my $tpl = TEMPLATE->new('projects.tpl');
