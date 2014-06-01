@@ -1,10 +1,10 @@
-INSERT INTO helper_task_priority SET name = 'Низкий';
-INSERT INTO helper_task_priority SET name = 'Средний';
-INSERT INTO helper_task_priority SET name = 'Высокий';
+INSERT INTO helper_task_priority SET name = 'РќРёР·РєРёР№';
+INSERT INTO helper_task_priority SET name = 'РЎСЂРµРґРЅРёР№';
+INSERT INTO helper_task_priority SET name = 'Р’С‹СЃРѕРєРёР№';
 -- --------------------------------------------------------
-INSERT INTO helper_task_status SET name = 'Открыта';
-INSERT INTO helper_task_status SET name = 'Закрыта';
+INSERT INTO helper_task_status SET name = 'РћС‚РєСЂС‹С‚Р°';
+INSERT INTO helper_task_status SET name = 'Р—Р°РєСЂС‹С‚Р°';
 -- --------------------------------------------------------
-INSERT INTO helper_task_type SET name = 'Баг';
-INSERT INTO helper_task_type SET name = 'Фича';
+INSERT INTO helper_task_type SET name = 'Р‘Р°Рі';
+INSERT INTO helper_task_type SET name = 'Р¤РёС‡Р°';
 -- --------------------------------------------------------
