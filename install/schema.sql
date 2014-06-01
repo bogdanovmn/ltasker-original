@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS component (
   project_id int(11) unsigned NOT NULL,
   `name` varchar(250) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS helper_task_priority (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS helper_task_status (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS helper_task_type (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS project (
   create_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS task (
   performer int(10) unsigned NOT NULL,
   component int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS task_history (
   user_id int(10) unsigned NOT NULL,
   details text NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -112,4 +112,4 @@ CREATE TABLE IF NOT EXISTS `user` (
   password_hash varchar(32) NOT NULL,
   create_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
-) ENGINE=MyISAM  DEFAULT CHARSET=cp1251;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
