@@ -3,13 +3,13 @@
 use strict;
 use warnings;
 use lib 'lib';
-use LTASKER;
-use LTASKER::NAVIGATION;
-use LTASKER::USER;
+use LTasker;
+use LTasker::NAVIGATION;
+use LTasker::User;
 use TEMPLATE;
 use ERRORS;
 
-my $ltasker = LTASKER->enter;
+my $ltasker = LTasker->enter;
 
 my $tpl = TEMPLATE->new('user.tpl');
 $tpl->params(

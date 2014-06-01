@@ -1,16 +1,16 @@
-package LTASKER::USER;
+package LTasker::User;
 
 use strict;
 use warnings;
 use ERRORS;
 
-use base "LTASKER::DB";
+use base "LTasker::DB";
 #
 # User object constructor
 sub choose {
 	my ($class, $id) = @_;
 
-	my $self = LTASKER::DB::connect($class);
+	my $self = LTasker::DB::connect($class);
 	$self->{user_id} = $id;
 
 	return $self;

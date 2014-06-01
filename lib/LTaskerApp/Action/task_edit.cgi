@@ -3,15 +3,15 @@
 use strict;
 use warnings;
 use lib 'lib';
-use LTASKER;
-use LTASKER::NAVIGATION;
-use LTASKER::PROJECT;
-use LTASKER::TASK;
+use LTasker;
+use LTasker::NAVIGATION;
+use LTasker::Project;
+use LTasker::Task;
 use CGI;
 use TEMPLATE;
 use ERRORS;
 
-my $ltasker = LTASKER->enter;
+my $ltasker = LTasker->enter;
 
 my $cgi = CGI->new;
 my $action = $cgi->param('action') || "none";
@@ -28,10 +28,10 @@ $project_id ?
 	$ltasker->permission(project_id => $project_id) :
 	$ltasker->permission(task_id => $task_id);
 
-my $project = LTASKER::PROJECT->choose($project_id);
+my $project = LTasker::Project->choose($project_id);
 my $project_info = $project->info;
 
-my $task = LTASKER::TASK->choose($task_id);
+my $task = LTasker::Task->choose($task_id);
 my $task_info = $task->info;
 
 my %task_info_input = (

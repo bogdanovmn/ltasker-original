@@ -1,4 +1,4 @@
-package LTASKER::DB;
+package LTasker::DB;
 
 use strict;
 use warnings;

@@ -6,12 +6,12 @@ use lib 'lib';
 use CGI;
 use CGI::Session;
 use Digest::MD5 qw( md5_hex );
-use LTASKER;
-use LTASKER::NAVIGATION;
-use LTASKER::USER;
+use LTasker;
+use LTasker::NAVIGATION;
+use LTasker::User;
 use ERRORS;
 
-use base 'LTASKER::DB';
+use base 'LTasker::DB';
 
 #
 # Get login info
@@ -19,7 +19,7 @@ use base 'LTASKER::DB';
 sub info {
 	my ($class, %p) = @_;
 
-	my $self = LTASKER::DB::connect($class);
+	my $self = LTasker::DB::connect($class);
 
 	$self->{user_auth} = 0;
 	$self->{user_id} = 0;
@@ -27,7 +27,7 @@ sub info {
 	$self->{login_error_msg} = "";
 
 	if (defined $self->{session}->param("user_id")) {
-		my $user = LTASKER::USER->choose($self->{session}->param("user_id"));
+		my $user = LTasker::User->choose($self->{session}->param("user_id"));
 		my $user_info = $user->info;
 		$self->{user_auth} = $self->{session}->param("user_auth"),
 		$self->{user_id} = $self->{session}->param("user_id"),

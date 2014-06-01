@@ -4,14 +4,14 @@ use strict;
 use warnings;
 use utf8;
 
-use LTASKER::PROJECT;
+use LTasker::Project;
 
 
 sub main {
 	my ($class, $params) = @_;
 
 	my $project_id = $param->{id};
-	my $project    = LTASKER::PROJECT->choose($project_id);
+	my $project    = LTasker::Project->choose($project_id);
 
 	return {
 		p_components => $project->components,

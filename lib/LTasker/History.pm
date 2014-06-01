@@ -1,9 +1,9 @@
-package LTASKER::HISTORY;
+package LTasker::History;
 
 use strict;
 use warnings;
 use lib 'lib';
-use LTASKER;
+use LTasker;
 
 use constant H_EVENT => { 
 	comment => 1,
@@ -11,7 +11,7 @@ use constant H_EVENT => {
 	status_change => 3
 };
 
-use base 'LTASKER::DB';
+use base 'LTasker::DB';
 
 #
 # Hystory object constructor
@@ -19,7 +19,7 @@ use base 'LTASKER::DB';
 sub init {
 	my ($class, %p) = @_;
 
-	my $self = LTASKER::DB::connect($class);
+	my $self = LTasker::DB::connect($class);
 	$self->{task_id} = $p{task_id};
 
 	return $self;

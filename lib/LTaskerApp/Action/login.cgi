@@ -3,8 +3,8 @@
 use strict;
 use warnings;
 use lib 'lib';
-use LTASKER;
-use LTASKER::NAVIGATION;
+use LTasker;
+use LTasker::NAVIGATION;
 use CGI;
 use TEMPLATE;
 use ERRORS;
@@ -20,7 +20,7 @@ my $auth_failed_redirect = $cgi->param('auth_failed') || 0;
 
 $auth_failed_redirect = 1 if $action eq "in";
 
-my $ltasker = LTASKER->enter(auth_failed_redirect => $auth_failed_redirect);
+my $ltasker = LTasker->enter(auth_failed_redirect => $auth_failed_redirect);
 
 my $error_msg = $auth_failed_redirect ? "Необходимо прологиниться!" : undef;
 

@@ -1,4 +1,4 @@
-package LTASKER::TASK;
+package LTasker::Task;
 
 use strict;
 use warnings;
@@ -8,12 +8,12 @@ use TEXT;
 use constant STATUS_OPEN => 1;
 use constant STATUS_CLOSE => 2;
 
-use base "LTASKER::HISTORY";
+use base "LTasker::History";
 
 sub choose {
 	my ($class, $id) = @_;
 
-	my $self = LTASKER::HISTORY::init($class, task_id => $id);
+	my $self = LTasker::History::init($class, task_id => $id);
 	
 	return $self;
 }

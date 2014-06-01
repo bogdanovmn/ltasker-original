@@ -1,16 +1,16 @@
-package LTASKER::PROJECT;
+package LTasker::Project;
 
 use strict;
 use warnings;
 use ERRORS;
 use TEXT;
 
-use base "LTASKER::DB";
+use base "LTasker::DB";
 
 sub choose {
 	my ($class, $project_id) = @_;
 
-	my $self = LTASKER::DB::connect($class);
+	my $self = LTasker::DB::connect($class);
 	$self->{id} = $project_id;
 	
 	return $self;

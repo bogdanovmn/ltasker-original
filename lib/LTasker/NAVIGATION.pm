@@ -1,4 +1,4 @@
-package LTASKER::NAVIGATION;
+package LTasker::NAVIGATION;
 
 use strict;
 use warnings;

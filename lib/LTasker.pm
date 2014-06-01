@@ -1,12 +1,12 @@
-package LTASKER;
+package LTasker;
 
 use strict;
 use warnings;
 use CGI;
 use ERRORS;
-use LTASKER::NAVIGATION;
-use LTASKER::PROJECT;
-use LTASKER::VERSION;
+use LTasker::NAVIGATION;
+use LTasker::Project;
+use LTasker::VERSION;
 #
 # Parent
 #
@@ -34,7 +34,7 @@ sub enter {
 # Return system version
 #
 sub version {
-	return LTASKER::VERSION::get();
+	return LTasker::VERSION::get();
 }
 #
 # Check permission
@@ -91,7 +91,7 @@ sub add_project {
 	);
 
 	my $project_id = $self->_last_add_id;
-	my $project = LTASKER::PROJECT->choose($project_id);
+	my $project = LTasker::Project->choose($project_id);
 	#debug($project);
 	my @components = split(/\n/, $p{components});
 	for my $component (@components) {

@@ -3,10 +3,10 @@
 use strict;
 use warnings;
 use lib 'lib';
-use LTASKER;
-use LTASKER::NAVIGATION;
+use LTasker;
+use LTasker::NAVIGATION;
 use LTasker::Auth;
-use LTASKER::USER;
+use LTasker::User;
 use CGI;
 use TEMPLATE;
 use ERRORS;
@@ -28,7 +28,7 @@ my $error_code = $cgi->param('error');
 #debug($cgi);
 
 my $auth = LTasker::Auth->info;
-my $user = LTASKER::USER->choose($auth->user_data->{user_id});
+my $user = LTasker::User->choose($auth->user_data->{user_id});
 
 if ($auth->success_in) {
 	if ($action eq "update") {

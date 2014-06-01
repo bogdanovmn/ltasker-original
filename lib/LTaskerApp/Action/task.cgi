@@ -3,19 +3,19 @@
 use strict;
 use warnings;
 use lib 'lib';
-use LTASKER;
-use LTASKER::TASK;
+use LTasker;
+use LTasker::Task;
 use CGI;
 use TEMPLATE;
 use ERRORS;
 
-my $ltasker = LTASKER->enter;
+my $ltasker = LTasker->enter;
 
 my $cgi = CGI->new;
 my $task_id = $cgi->param('task_id');
 
 $ltasker->permission(task_id => $task_id);
-my $task = LTASKER::TASK->choose($task_id);
+my $task = LTasker::Task->choose($task_id);
 
 my $tpl = TEMPLATE->new('task.tpl');
 $tpl->params(
