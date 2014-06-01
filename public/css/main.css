@@ -1,0 +1,57 @@
+body { font-family: Verdana, Arial; font-size: 10pt; margin: 0; padding: 0;}
+
+a { color: #400052; text-decoration: none}
+a:hover { color: #9E68AD; }
+
+a.action { display: inline-block;  background: #9E68AD; padding: 5px; font-size: 12pt;  font-weight: bold; text-decoration: none; }
+a.action:hover { background: #C7B2D4; font-weight: bold; text-decoration: none; }
+
+div.top_menu { width: 99%; margin: 10px auto 30px auto; border: 1px solid green; padding: 10px 0px; text-align: center; }
+div.top_menu a { display: inline-block;  margin: 0 7px; background: #8B828F; color: #F4F2F5; padding: 3px; font-size: 11pt;  font-weight: bold; }
+div.top_menu a:hover { display: inline-block;  background: #BAB0BF; color: #8B828F;}
+
+table { margin: 0; width: auto; border-collapse: collapse; }
+table td { width: auto; padding: 2px; text-align: left;}
+
+div.main { width: 99%; margin: 0 auto; border: 0px solid red; text-align: center;} 
+div.menu { width: 99%; margin: 0 auto; text-align: left; }
+div.login { width: 400px; padding: 10px 30px 50px 30px; margin: 150px auto; background: #F5F5F5; border: 1px solid #E3E3E3;}
+div.error { text-align: left; }
+span.version { font-size: 8pt; color: grey; font-weight: normal;}
+
+table.top_menu { width: 99%; margin: 0 auto; border: 0px solid red;}
+table.top_menu td { padding: 4px; background: #E5DFE8; }
+table.top_menu td.user { width: 30%; font-size: 8pt; }
+table.top_menu td.user a { color: #9E68AD; font-size: 10pt; }
+table.top_menu td.user a:hover { text-decoration: underline; }
+table.top_menu td.menu { width: 65%; font-size: 12pt; }
+table.top_menu td.logout { width: 5%; font-weight: bold; font-size: 14pt; text-align: center;}
+table.top_menu td.logout:hover { background: #CCC4CF;}
+table.top_menu td.logout a:hover { color: black; }
+
+table.form { text-align: left; border: 0px solid red; margin: 0 auto;}
+table.form td { vertical-align: top; padding: 10px 20px 5px 20px;}
+
+table.tasks { margin: 10px auto; border: 1px solid grey; width: 99%; text-align: left;}
+table.tasks td { text-align: center; padding: 5px 3px;}
+table.tasks th { background: #87788F; color: white; font-weight: bold; font-size: 10pt; text-align: center; padding: 3px 7px; border-right: 1px solid #9B91A1;}
+table.tasks td.id { width: 2%; }
+table.tasks td.name { width: 40%; text-align: left; font-weight: bold; font-size: 10pt; color: #2F004D; padding-left: 5px; }
+table.tasks td.description { text-align: left; font-size: 8pt; color: #2F004D; padding: 1px 5px; vertical-align: top;}
+table.tasks tr:nth-child(even) { background: #F7F0FA; }
+table.tasks tr:hover { background: #ECCAFC; }
+
+table.view { background: #EBE6F0; width: 60%; margin: 15px auto; border: 1px solid #CCC4CF;}
+table.view th { background: #CCC4CF; font-size: 13pt; padding: 3px 15px;}
+table.view th.title { width: 25%; color: #E9E6EB; font-weight: bold; text-align: left; }
+table.view th.close { font-weight: bold; text-align: right; }
+table.view th.action { font-size: 11pt; font-weight: normal; text-align: right; background: #EBE6F0; border-top: 1px dashed #CCC4CF; }
+table.view td:nth-child(odd) { font-weight: bold; text-align: right; vertical-align: top; padding: 6px 15px;}
+
+div.project { margin: 10px auto; border: 1px solid grey; width: 97%; text-align: left; padding: 10px;}
+div.project:hover { background: #ECCAFC; }
+div.project a { font-size: 16pt; }
+div.project p.info { margin-top: 3px; font-size: 8pt; }
+div.project p.action { margin: -25px 0px 0px 0px; text-align: right; }
+div.project p.action a { font-size: 11pt; }
+
