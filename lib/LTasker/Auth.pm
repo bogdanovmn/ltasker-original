@@ -2,7 +2,7 @@ package LTasker::Auth;
 
 use strict;
 use warnings;
-use lib 'lib';
+use utf8;
 use CGI;
 use CGI::Session;
 use Digest::MD5 qw( md5_hex );

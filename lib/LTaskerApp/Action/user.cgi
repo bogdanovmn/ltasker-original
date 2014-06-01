@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use lib 'lib';
+use utf8;
 use LTasker;
 use LTasker::NAVIGATION;
 use LTasker::User;

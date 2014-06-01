@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use lib 'lib';
+use utf8;
 use LTasker;
 use LTasker::Task;
 use CGI;
@@ -12,7 +12,7 @@ use ERRORS;
 my $ltasker = LTasker->enter;
 
 my $cgi = CGI->new;
-my $task_id = $cgi->param('task_id');
+my $task_id = $params->{task_id};
 
 $ltasker->permission(task_id => $task_id);
 my $task = LTasker::Task->choose($task_id);

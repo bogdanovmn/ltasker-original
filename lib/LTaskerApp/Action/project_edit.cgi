@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use lib 'lib';
+use utf8;
 use LTasker;
 use LTasker::NAVIGATION;
 use LTasker::Project;
@@ -13,13 +13,13 @@ use ERRORS;
 my $ltasker = LTasker->enter;
 
 my $cgi = CGI->new;
-my $action = $cgi->param('action') || "none";
-my $project_name = $cgi->param('name') || "";
-my $project_description = $cgi->param('description') || "";
-my $project_id = $cgi->param('project_id');
-my $new_components = $cgi->param('new_components');
-my $component_id = $cgi->param('component_id');
-my $component_submit = $cgi->param('component_submit');
+my $action = $params->{action} || "none";
+my $project_name = $params->{name} || "";
+my $project_description = $params->{description} || "";
+my $project_id = $params->{project_id};
+my $new_components = $params->{new_components};
+my $component_id = $params->{component_id};
+my $component_submit = $params->{component_submit};
 
 #debug($cgi);
 

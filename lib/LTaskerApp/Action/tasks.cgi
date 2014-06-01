@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use lib 'lib';
+use utf8;
 use LTasker;
 use LTasker::NAVIGATION;
 use LTasker::Project;
@@ -13,8 +13,8 @@ use ERRORS;
 my $ltasker = LTasker->enter;
 
 my $cgi = CGI->new;
-my $action = $cgi->param('action') || "none";
-my $project_id = $cgi->param('project_id');
+my $action = $params->{action} || "none";
+my $project_id = $params->{project_id};
 
 $ltasker->permission(project_id => $project_id);
 

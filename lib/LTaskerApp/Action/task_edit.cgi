@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use lib 'lib';
+use utf8;
 use LTasker;
 use LTasker::NAVIGATION;
 use LTasker::Project;
@@ -14,15 +14,15 @@ use ERRORS;
 my $ltasker = LTasker->enter;
 
 my $cgi = CGI->new;
-my $action = $cgi->param('action') || "none";
-my $task_name = $cgi->param('name') || "";
-my $task_description = $cgi->param('description') || "";
-my $task_id = $cgi->param('task_id');
-my $task_status = $cgi->param('status') || 0;
-my $task_component = $cgi->param('component');
-my $task_type = $cgi->param('type');
-my $task_priority = $cgi->param('priority');
-my $project_id = $cgi->param('project_id');
+my $action = $params->{action} || "none";
+my $task_name = $params->{name} || "";
+my $task_description = $params->{description} || "";
+my $task_id = $params->{task_id};
+my $task_status = $params->{status} || 0;
+my $task_component = $params->{component};
+my $task_type = $params->{type};
+my $task_priority = $params->{priority};
+my $project_id = $params->{project_id};
 
 $project_id ?
 	$ltasker->permission(project_id => $project_id) :

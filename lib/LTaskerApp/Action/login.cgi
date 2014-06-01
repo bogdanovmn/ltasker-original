@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use lib 'lib';
+use utf8;
 use LTasker;
 use LTasker::NAVIGATION;
 use CGI;
@@ -11,10 +11,10 @@ use ERRORS;
 
 
 my $cgi = CGI->new;
-my $action = $cgi->param('action') || "none";
-my $name = $cgi->param('name');
-my $password = $cgi->param('password');
-my $auth_failed_redirect = $cgi->param('auth_failed') || 0;
+my $action = $params->{action} || "none";
+my $name = $params->{name};
+my $password = $params->{password};
+my $auth_failed_redirect = $params->{auth_failed} || 0;
 
 #debug($cgi);
 

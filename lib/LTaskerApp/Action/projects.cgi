@@ -2,14 +2,14 @@
 
 use strict;
 use warnings;
-use lib 'lib';
+use utf8;
 use LTasker;
 use CGI;
 use TEMPLATE;
 use ERRORS;
 
 my $cgi = CGI->new;
-my $permission_failed = $cgi->param("permission_failed");
+my $permission_failed = $params->{permission_failed};
 
 my $ltasker = LTasker->enter;
 

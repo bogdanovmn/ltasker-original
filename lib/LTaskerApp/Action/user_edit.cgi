@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use lib 'lib';
+use utf8;
 use LTasker;
 use LTasker::NAVIGATION;
 use LTasker::Auth;
@@ -17,13 +17,13 @@ my %error_codes = (
 );
 
 my $cgi = CGI->new;
-my $action = $cgi->param('action') || "none";
-my $user_id= $cgi->param('user_id');
-my $name = $cgi->param('login');
-my $email = $cgi->param('email');
-my $password = $cgi->param('password');
-my $password_verify = $cgi->param('password_verify');
-my $error_code = $cgi->param('error');
+my $action = $params->{action} || "none";
+my $user_id= $params->{user_id};
+my $name = $params->{login};
+my $email = $params->{email};
+my $password = $params->{password};
+my $password_verify = $params->{password_verify};
+my $error_code = $params->{error};
 
 #debug($cgi);
 

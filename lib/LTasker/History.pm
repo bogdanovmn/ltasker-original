@@ -2,7 +2,7 @@ package LTasker::History;
 
 use strict;
 use warnings;
-use lib 'lib';
+use utf8;
 use LTasker;
 
 use constant H_EVENT => { 
