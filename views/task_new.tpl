@@ -1,10 +1,8 @@
-<TMPL_INCLUDE NAME='head.tpl'>
-
 <form name=task method=post>
 	<table class=view>
 		<tr>
 			<th class=title>Новая задача
-			<th class=close><a href="<TMPL_VAR NAME='web_root'>tasks.cgi?project_id=<TMPL_VAR NAME='p_id'>">X</a>
+			<th class=close><a href="<TMPL_VAR NAME=web_root>tasks.cgi?project_id=<TMPL_VAR NAME=p_id>">X</a>
 			
 		<tr>
 			<td>Кратко:
@@ -14,24 +12,24 @@
 			<td>Тип:
 			<td>
 				<select name=type>
-					<TMPL_LOOP NAME="types">
-						<option value="<TMPL_VAR NAME='id'>"><TMPL_VAR NAME="name"></option>
+					<TMPL_LOOP NAME=types>
+						<option value="<TMPL_VAR NAME=id>"><TMPL_VAR NAME=name></option>
 					</TMPL_LOOP>
 				</select>
 		<tr>	
 			<td>Компонент:
 			<td>
 				<select name=component>
-					<TMPL_LOOP NAME="components">
-						<option value="<TMPL_VAR NAME='id'>"><TMPL_VAR NAME="name"></option>
+					<TMPL_LOOP NAME=components>
+						<option value="<TMPL_VAR NAME=id>"><TMPL_VAR NAME=name></option>
 					</TMPL_LOOP>
 				</select>
 		<tr>	
 			<td>Приоритет:
 			<td>
 				<select name=priority>
-					<TMPL_LOOP NAME="priorities">
-						<option value="<TMPL_VAR NAME='id'>"><TMPL_VAR NAME="name"></option>
+					<TMPL_LOOP NAME=priorities>
+						<option value="<TMPL_VAR NAME=id>"><TMPL_VAR NAME=name></option>
 					</TMPL_LOOP>
 				</select>
 		
@@ -44,7 +42,5 @@
 				<input type=submit name=task_submit value='Добавить'>
 	</table>
 	<input type=hidden name=action value='add'>
-	<input type=hidden name=project_id value='<TMPL_VAR NAME="p_id">'>
+	<input type=hidden name=project_id value='<TMPL_VAR NAME=p_id>'>
 </form>
-
-<TMPL_INCLUDE NAME='foot.tpl'>
