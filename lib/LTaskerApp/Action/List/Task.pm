@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+package LTaskerApp::Action::
 
 use strict;
 use warnings;

@@ -16,6 +16,7 @@ use LTaskerApp::Action::User::Edit::Post;
 use LTaskerApp::Action::Task::View; 
 use LTaskerApp::Action::Task::Edit::Form; 
 use LTaskerApp::Action::Task::Edit::Post;
+use LTaskerApp::Action::Task::Edit::Status;
 
 use LTaskerApp::Action::Project::View; 
 use LTaskerApp::Action::Project::Edit::Form; 
@@ -50,7 +51,6 @@ hook 'before' => sub {
 
 hook 'before_template_render' => sub {
 	my ($template_params) = @_;
-
 
 	while (my ($k, $v) = each %{vars->{ltasker}->user_data}) {
 		$template_params->{$k} = $v;

@@ -18,7 +18,7 @@ sub main {
 
 	return {
 		%{$task->info(for_html => 1)},
-	);
+	};
 }
 
 1;

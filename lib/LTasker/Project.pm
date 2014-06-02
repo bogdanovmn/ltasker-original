@@ -5,8 +5,7 @@ use warnings;
 use utf8;
 
 use Text;
-
-use base "LTasker::DB";
+use LTasker::DB;
 
 sub choose {
 	my ($class, $project_id) = @_;

@@ -6,8 +6,7 @@ use utf8;
 
 use Digest::MD5 qw( md5_hex );
 use LTasker::User;
-
-use base 'LTasker::DB';
+use LTasker::DB;
 
 #
 # Get login info
