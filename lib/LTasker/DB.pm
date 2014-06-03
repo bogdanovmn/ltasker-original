@@ -1,13 +1,12 @@
-package Psy::DB;
+package LTasker::DB;
 
 use DBI;
 use strict;
 use warnings;
 use utf8;
 
-use PSY_DB_CONF;
+use LT_DB_CONF;
 use Time::HiRes;
-use Psy::Errors;
 use Utils;
 
 my $__STATISTIC = {
@@ -26,9 +25,9 @@ sub connect {
 	unless ($__DBH) {
 		my $begin_time = Time::HiRes::time;
 		$__DBH = DBI->connect(
-			sprintf('dbi:mysql:%s:%s', PSY_DB_CONF::NAME, PSY_DB_CONF::HOST), 
-			PSY_DB_CONF::USER, 
-			PSY_DB_CONF::PASS
+			sprintf('dbi:mysql:%s:%s', LT_DB_CONF::NAME, LT_DB_CONF::HOST), 
+			LT_DB_CONF::USER, 
+			LT_DB_CONF::PASS
 		) or die $!;
 		$__DBH->{mysql_enable_utf8} = 1;
 		$__DBH->do("SET NAMES utf8");

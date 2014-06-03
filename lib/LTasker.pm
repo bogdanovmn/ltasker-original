@@ -15,7 +15,7 @@ use base 'LTasker::Auth';
 sub enter {
 	my ($class, %p) = @_;
 
-	return LTasker::Auth::info($class);
+	return LTasker::Auth::info($class, %p);
 }
 #
 # Check permission
