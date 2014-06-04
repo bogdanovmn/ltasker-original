@@ -2,7 +2,7 @@
 	<table class=view>
 		<tr>
 			<th class=title>Новый проект
-			<th class=close><a href="<TMPL_VAR NAME=web_root>projects.cgi">X</a>
+			<th class=close><a href="/projects/">X</a>
 		<tr>
 			<td>Название:
 			<td><input class="validate[required] text-input" size=50 type=text name=name value=''>

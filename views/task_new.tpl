@@ -1,8 +1,10 @@
+<TMPL_INCLUDE NAME='inc/error_msg.tpl'>
+
 <form name=task method=post>
 	<table class=view>
 		<tr>
 			<th class=title>Новая задача
-			<th class=close><a href="<TMPL_VAR NAME=web_root>tasks.cgi?project_id=<TMPL_VAR NAME=p_id>">X</a>
+			<th class=close><a href="/tasks/<TMPL_VAR NAME=p_id>/">X</a>
 			
 		<tr>
 			<td>Кратко:

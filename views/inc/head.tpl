@@ -38,17 +38,17 @@
 			<td class=menu>
 				<a href="/projects/">Проекты</a>
 				<TMPL_IF NAME=p_id>
-					:: <a href="/project_view/<TMPL_VAR NAME=p_id>"><TMPL_VAR NAME=p_name></a>
-					:: <a href="/tasks/<TMPL_VAR NAME=p_id>">Задачи</a>
+					:: <a href="/project_view/<TMPL_VAR NAME=p_id>/"><TMPL_VAR NAME=p_name></a>
+					:: <a href="/tasks/<TMPL_VAR NAME=p_id>/">Задачи</a>
 					<TMPL_IF NAME=tasks_list>
-						:: <a href="/task_edit/<TMPL_VAR NAME=p_id>">Новая задача</a>
+						:: <a href="/new_task/<TMPL_VAR NAME=p_id>/">Новая задача</a>
 					</TMPL_IF>
 				<TMPL_ELSE>
 					<TMPL_IF NAME=user_view>
 						| <a href="/user/">Профиль</a> 
-						:: <a href="/user_edit.cgi?action=edit">Редактировать</a>
+						:: <a href="/user_edit/">Редактировать</a>
 					<TMPL_ELSE>
-						:: <a href="/project_edit.cgi?action=new">Создать новый</a>
+						:: <a href="/new_project/">Создать новый</a>
 					</TMPL_IF>
 				</TMPL_IF>
 			<td class=logout>

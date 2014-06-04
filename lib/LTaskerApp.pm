@@ -15,16 +15,18 @@ use LTaskerApp::Action::Auth::Logout;
 #use LTaskerApp::Action::User::Edit::Post;
 
 #use LTaskerApp::Action::Task::View; 
+use LTaskerApp::Action::Task::New::Form; 
+use LTaskerApp::Action::Task::New::Post; 
 #use LTaskerApp::Action::Task::Edit::Form; 
 #use LTaskerApp::Action::Task::Edit::Post;
 #use LTaskerApp::Action::Task::Edit::Status;
 
-#use LTaskerApp::Action::Project::View; 
+use LTaskerApp::Action::Project::View; 
 #use LTaskerApp::Action::Project::Edit::Form; 
 #use LTaskerApp::Action::Project::Edit::Post;
 
-#use LTaskerApp::Action::List::Task; 
-#use LTaskerApp::Action::List::Project; 
+use LTaskerApp::Action::List::Task; 
+use LTaskerApp::Action::List::Project; 
 
 
 our $VERSION = '0.1';
@@ -56,7 +58,7 @@ hook 'before_template_render' => sub {
 
 
 get '/login/' => sub {
-	return controller(template => 'login', action => 'Auth::Form') 
+	controller(template => 'login', action => 'Auth::Form') 
 };
 
 post '/login/' => sub {
@@ -68,6 +70,33 @@ post '/login/' => sub {
 	}
 };
 
+get '/projects/' => sub {
+	controller(template => 'projects', action => 'List::Project') 
+};
 
+get '/new_project/' => sub {
+	controller(template => 'project_new') 
+};
+
+get '/project_view/:id/' => sub {
+	controller(template => 'project_view', action => 'Project::View') 
+};
+
+get '/tasks/:project_id/' => sub {
+	controller(template => 'tasks', action => 'List::Task') 
+};
+
+get '/new_task/:project_id/' => sub {
+	controller(template => 'task_new', action => 'Task::New::Form');
+};
+
+post '/new_task/:project_id/' => sub {
+	if (controller(action => 'Task::New::Post')) {
+		redirect sprintf('/tasks/%s/', params->{project_id});
+	}
+	else {
+		controller(template => 'task_new');
+	}
+};
 
 true;

@@ -1,7 +1,7 @@
 <TMPL_IF NAME=tasks>
 	<style type="text/css">
 		table.tasks th.header {
-			background-image: url(<TMPL_VAR NAME=web_root>/img/no_sort.gif);
+			background-image: url(//img/no_sort.gif);
 			cursor: pointer;
 			background-repeat: no-repeat;
 			background-position: center left;
@@ -9,11 +9,11 @@
 		}
 
 		table.tasks th.headerSortUp {
-			background-image: url(<TMPL_VAR NAME=web_root>/img/asc.gif);
+			background-image: url(//img/asc.gif);
 			background-color: #B17ECF;
 		}
 		table.tasks th.headerSortDown {
-			background-image: url(<TMPL_VAR NAME=web_root>/img/desc.gif);
+			background-image: url(//img/desc.gif);
 			background-color: #B17ECF;
 		}
 	</style>
@@ -35,7 +35,7 @@
 			<tr>
 			<td class=name>
 				<a 
-					href="<TMPL_VAR NAME=web_root>task.cgi?task_id=<TMPL_VAR NAME=id>" 
+					href="/task_view/<TMPL_VAR NAME=id>/" 
 					title='<b>Детали задачи:</b><br><br><TMPL_VAR NAME=description>'
 					name=helper
 				>
@@ -48,7 +48,7 @@
 			<td class=status><TMPL_VAR NAME=status>
 			<td class=date><TMPL_VAR NAME=close_date>
 			<td class=action>
-				<a href="<TMPL_VAR NAME ='web_root'>task_edit.cgi?task_id=<TMPL_VAR NAME=id>&project_id=<TMPL_VAR NAME=project_id>&action=<TMPL_VAR NAME=status_action>"><TMPL_VAR NAME=status_action_name></a>
+				<a href="/task_edit/<TMPL_VAR NAME=id>/<TMPL_VAR NAME=project_id>/action/<TMPL_VAR NAME=status_action>/"><TMPL_VAR NAME=status_action_name></a>
 		</TMPL_LOOP>
 		</tbody>
 	</table>
@@ -66,5 +66,5 @@
 		);
 	</script>
 <TMPL_ELSE>
-	<h2>Список задач пуст. <a href="<TMPL_VAR NAME=web_root>task_edit.cgi?project_id=<TMPL_VAR NAME=p_id>">Открыть задачу</a></h2>
+	<h2>Список задач пуст. <a href="/new_task/<TMPL_VAR NAME=p_id>/">Открыть задачу</a></h2>
 </TMPL_IF>

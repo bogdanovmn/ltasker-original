@@ -2,7 +2,7 @@
 	<table class=view>
 		<tr>
 			<th class=title>Проект
-			<th class=close><a href="<TMPL_VAR NAME=web_root>project_view.cgi?project_id=<TMPL_VAR NAME=p_id>">X</a>
+			<th class=close><a href="/project_view/<TMPL_VAR NAME=p_id>/">X</a>
 		<tr>
 			<td>Название:
 			<td><input class="validate[required] text-input" size=50 type=text name=name value='<TMPL_VAR NAME=p_name>'>
@@ -15,7 +15,7 @@
 			<td>Компоненты:
 			<td><TMPL_LOOP NAME=p_components>
 					<TMPL_VAR NAME=name> 
-					[ <a href="<TMPL_VAR NAME=web_root>project_edit.cgi?action=del_component&project_id=<TMPL_VAR NAME=project_id>&component_id=<TMPL_VAR NAME=id>">Удалить</a> ]<br>
+					[ <a href="/project_edit/<TMPL_VAR NAME=project_id>/del_component/<TMPL_VAR NAME=id>/">Удалить</a> ]<br>
 				</TMPL_LOOP>
 		<tr>
 			<td>Новые компоненты:

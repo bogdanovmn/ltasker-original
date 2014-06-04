@@ -1,4 +1,4 @@
-package LTaskerApp::Project::View;
+package LTaskerApp::Action::Project::View;
 
 use strict;
 use warnings;
@@ -10,7 +10,7 @@ use LTasker::Project;
 sub main {
 	my ($class, $params) = @_;
 
-	my $project_id = $param->{id};
+	my $project_id = $params->{id};
 	my $project    = LTasker::Project->choose($project_id);
 
 	return {
