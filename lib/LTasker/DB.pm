@@ -124,7 +124,7 @@ sub explain_query {
 	
 	$sth->finish;
 
-	use NICE_VALUES;
+	use Format::LongNumber;
 	my $explain_data = {
 		caller => (caller(2))[3],
 		details => \@result, 
