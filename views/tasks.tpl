@@ -35,7 +35,7 @@
 			<tr>
 			<td class=name>
 				<a 
-					href="/task_view/<TMPL_VAR NAME=id>/" 
+					href="/task_view/<TMPL_VAR NAME=project_id>/<TMPL_VAR NAME=id>/" 
 					title='<b>Детали задачи:</b><br><br><TMPL_VAR NAME=description>'
 					name=helper
 				>
@@ -48,7 +48,7 @@
 			<td class=status><TMPL_VAR NAME=status>
 			<td class=date><TMPL_VAR NAME=close_date>
 			<td class=action>
-				<a href="/task_edit/<TMPL_VAR NAME=id>/<TMPL_VAR NAME=project_id>/action/<TMPL_VAR NAME=status_action>/"><TMPL_VAR NAME=status_action_name></a>
+				<a href="/task_edit/<TMPL_VAR NAME=status_action>/<TMPL_VAR NAME=project_id>/<TMPL_VAR NAME=id>/"><TMPL_VAR NAME=status_action_name></a>
 		</TMPL_LOOP>
 		</tbody>
 	</table>

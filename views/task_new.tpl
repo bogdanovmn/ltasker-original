@@ -1,6 +1,6 @@
 <TMPL_INCLUDE NAME='inc/error_msg.tpl'>
 
-<form name=task method=post>
+<form name=task method=post action='/new_task/'>
 	<table class=view>
 		<tr>
 			<th class=title>Новая задача

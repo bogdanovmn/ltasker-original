@@ -31,6 +31,7 @@ sub main {
 	return {
 		error_msg => $ltasker->last_error,
 		%helpers,
+		%{$project->info}
 	};
 }
 

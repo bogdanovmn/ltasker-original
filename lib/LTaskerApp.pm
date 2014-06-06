@@ -14,12 +14,12 @@ use LTaskerApp::Action::Auth::Logout;
 #use LTaskerApp::Action::User::Edit::Form; 
 #use LTaskerApp::Action::User::Edit::Post;
 
-#use LTaskerApp::Action::Task::View; 
+use LTaskerApp::Action::Task::View; 
 use LTaskerApp::Action::Task::New::Form; 
 use LTaskerApp::Action::Task::New::Post; 
-#use LTaskerApp::Action::Task::Edit::Form; 
-#use LTaskerApp::Action::Task::Edit::Post;
-#use LTaskerApp::Action::Task::Edit::Status;
+use LTaskerApp::Action::Task::Edit::Form; 
+use LTaskerApp::Action::Task::Edit::Post;
+use LTaskerApp::Action::Task::Edit::Status;
 
 use LTaskerApp::Action::Project::View; 
 #use LTaskerApp::Action::Project::Edit::Form; 
@@ -90,12 +90,44 @@ get '/new_task/:project_id/' => sub {
 	controller(template => 'task_new', action => 'Task::New::Form');
 };
 
-post '/new_task/:project_id/' => sub {
+get '/task_view/:project_id/:task_id/' => sub {
+	controller(template => 'task', action => 'Task::View');
+};
+
+post '/new_task/' => sub {
 	if (controller(action => 'Task::New::Post')) {
 		redirect sprintf('/tasks/%s/', params->{project_id});
 	}
 	else {
-		controller(template => 'task_new');
+		controller(template => 'task_new', action => 'Task::New::Form');
+	}
+};
+
+get qr#/task_edit/(close|open)/(\d+)/(\d+)/# => sub {
+	my ($action, $project_id, $task_id) = splat;
+
+	var action     => $action;
+	var project_id => $project_id;
+	var task_id    => $task_id;
+
+	if (controller(action => 'Task::Edit::Status')) {
+		redirect sprintf('/tasks/%d/', $project_id);
+	}
+	else {
+		show_error;
+	}
+};
+
+get '/task_edit/:project_id/:task_id/' => sub {
+	controller(template => 'task_edit', action => 'Task::Edit::Form');
+};
+
+post '/task_edit/' => sub {
+	if (controller(action => 'Task::Edit::Post')) {
+		redirect sprintf('/task_view/%d/%d/', params->{project_id}, params->{task_id});
+	}
+	else {
+		controller(template => 'task_edit', action => 'Task::Edit::Form');
 	}
 };
 

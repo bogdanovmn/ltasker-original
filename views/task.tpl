@@ -1,7 +1,7 @@
 <table class=view>
 	<tr>
 		<th class=title>Задача
-		<th class=close><a href="<TMPL_VAR NAME=web_root>tasks.cgi?project_id=<TMPL_VAR NAME=p_id>">X</a>
+		<th class=close><a href="/tasks/<TMPL_VAR NAME=p_id>/">X</a>
 	<tr>	
 		<td>Кратко: 
 		<td><TMPL_VAR NAME=t_name>	
@@ -19,5 +19,5 @@
 		<td><TMPL_VAR ESCAPE="NONE" NAME=t_description>
 	<tr>
 		<th colspan=2 class=action>
-			<a href="<TMPL_VAR NAME=web_root>task_edit.cgi?task_id=<TMPL_VAR NAME=t_id>&action=edit">Редактировать</a>
+			<a href="/task_edit/<TMPL_VAR NAME=p_id>/<TMPL_VAR NAME=t_id>/">Редактировать</a>
 </table>

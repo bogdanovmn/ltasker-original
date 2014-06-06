@@ -82,7 +82,7 @@ sub tasks {
 sub add_task {
 	my ($self, %p) = @_;
 	
-	$self->query(qq|
+	return $self->query(qq|
 		INSERT INTO task 
 		SET	name = ?,
 			description = ?,

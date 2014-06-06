@@ -5,7 +5,8 @@ use warnings;
 use utf8;
 
 use LTasker::Project;
-#
+use Utils;
+##
 # Parent
 #
 use base 'LTasker::Auth';
@@ -26,13 +27,15 @@ sub permission {
 	my $result = 0;
 	if ($p{project_id}) {
 		$result = scalar @{$self->query(qq|
-			SELECT 1 FROM project WHERE id = ? AND owner = ? |,
-			[ $p{project_id}, $self->{user_id} ] 
+			SELECT 1 FROM project WHERE id = ? AND owner = ? 
+			|,
+			[ $p{project_id}, $self->{user_id} ],
 		)};
 	}
 	if ($p{task_id}) {
 		$result = scalar @{$self->query(qq|
-			SELECT 1 FROM task WHERE id = ? AND owner = ? |,
+			SELECT 1 FROM task WHERE id = ? AND owner = ? 
+			|,
 			[ $p{task_id}, $self->{user_id} ]
 		)};
 	}

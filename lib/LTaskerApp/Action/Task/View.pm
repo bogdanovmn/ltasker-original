@@ -12,7 +12,9 @@ sub main {
 	my $ltasker = $params->{ltasker};
 	my $task_id = $params->{task_id};
 
-	return undef unless $ltasker->permission(task_id => $task_id);
+	unless ($ltasker->permission(task_id => $task_id)) {
+		return $ltasker->error("Доступ запрещен");
+	}
 
 	my $task = LTasker::Task->choose($task_id);
 

@@ -1,8 +1,8 @@
-<form name=task method=post>
+<form name=task method=post action='/task_edit/'>
 	<table class=view>
 		<tr>
 			<th class=title>Задача
-			<th class=close><a href="<TMPL_VAR NAME=web_root>task.cgi?task_id=<TMPL_VAR NAME=t_id>">X</a>
+			<th class=close><a href="/task_view/<TMPL_VAR NAME=t_id>/">X</a>
 		<tr>
 			<td>Кратко:
 			<td><input class="validate[required,length[10,255]] text-input" size=91 type=text name=name value='<TMPL_VAR NAME=t_name>'>
