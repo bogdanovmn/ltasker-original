@@ -8,17 +8,17 @@ use LTasker::Project;
 use LTasker::Task;
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 
-	my $ltasker          = $params->{ltasker};
-	my $task_name        = $params->{name} || "";
-	my $task_description = $params->{description} || "";
-	my $task_id          = $params->{task_id};
-	my $task_status      = $params->{status} || 0;
-	my $task_component   = $params->{component};
-	my $task_type        = $params->{type};
-	my $task_priority    = $params->{priority};
-	my $project_id       = $params->{project_id};
+	my $ltasker          = $self->params->{ltasker};
+	my $task_name        = $self->params->{name} || "";
+	my $task_description = $self->params->{description} || "";
+	my $task_id          = $self->params->{task_id};
+	my $task_status      = $self->params->{status} || 0;
+	my $task_component   = $self->params->{component};
+	my $task_type        = $self->params->{type};
+	my $task_priority    = $self->params->{priority};
+	my $project_id       = $self->params->{project_id};
 
 	$project_id ?
 		$ltasker->permission(project_id => $project_id) :

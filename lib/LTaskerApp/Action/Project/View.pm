@@ -8,9 +8,9 @@ use LTasker::Project;
 
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 
-	my $project_id = $params->{id};
+	my $project_id = $self->params->{id};
 	my $project    = LTasker::Project->choose($project_id);
 
 	return {

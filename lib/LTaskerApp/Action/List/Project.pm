@@ -5,10 +5,10 @@ use warnings;
 use utf8;
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 	
 	return {
-		projects => $params->{ltasker}->load_projects
+		projects => $self->params->{ltasker}->load_projects
 	};
 }
 
