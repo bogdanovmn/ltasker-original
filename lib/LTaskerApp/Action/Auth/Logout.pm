@@ -6,9 +6,9 @@ use utf8;
 
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 
-	my $ltasker = $params->{ltasker};
+	my $ltasker = $self->params->{ltasker};
 	
 	return $ltasker->logout;
 }

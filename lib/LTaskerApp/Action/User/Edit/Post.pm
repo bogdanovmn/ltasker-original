@@ -8,14 +8,14 @@ use LTasker::User;
 
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 	
-	my $ltasker  = $params->{ltasker};
-	my $user_id  = $params->{user_id};
-	my $name     = $params->{login};
-	my $email    = $params->{email};
-	my $password = $params->{password};
-	my $password_verify = $params->{password_verify};
+	my $ltasker  = $self->params->{ltasker};
+	my $user_id  = $self->params->{user_id};
+	my $name     = $self->params->{login};
+	my $email    = $self->params->{email};
+	my $password = $self->params->{password};
+	my $password_verify = $self->params->{password_verify};
 
 	my $user = LTasker::User->choose($ltasker->user_data->{user_id});
 

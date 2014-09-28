@@ -6,11 +6,11 @@ use utf8;
 
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 
-	my $ltasker  = $params->{ltasker};
-	my $name     = $params->{name};
-	my $password = $params->{password};
+	my $ltasker  = $self->params->{ltasker};
+	my $name     = $self->params->{name};
+	my $password = $self->params->{password};
 
 	return $ltasker->login(user_name => $name, password => $password);
 }

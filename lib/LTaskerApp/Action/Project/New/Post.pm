@@ -6,13 +6,13 @@ use utf8;
 
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 	
-	my $ltasker = $params->{ltasker};
+	my $ltasker = $self->params->{ltasker};
 
-	my $project_name        = $params->{name} || "";
-	my $project_description = $params->{description} || "";
-	my $new_components      = $params->{new_components};
+	my $project_name        = $self->params->{name} || "";
+	my $project_description = $self->params->{description} || "";
+	my $new_components      = $self->params->{new_components};
 
 	unless ($project_name) {
 		return $ltasker->error("Имя проекта необходимо заполнить!");

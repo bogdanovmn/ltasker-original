@@ -7,10 +7,10 @@ use utf8;
 use LTasker::Task;
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 
-	my $ltasker = $params->{ltasker};
-	my $task_id = $params->{task_id};
+	my $ltasker = $self->params->{ltasker};
+	my $task_id = $self->params->{task_id};
 
 	unless ($ltasker->permission(task_id => $task_id)) {
 		return $ltasker->error("Доступ запрещен");

@@ -8,9 +8,9 @@ use LTasker::User;
 
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 
-	my $ltasker = $params->{ltasker};
+	my $ltasker = $self->params->{ltasker};
 
 	return {
 		user_view => 1,

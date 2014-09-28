@@ -8,10 +8,10 @@ use LTasker::User;
 
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 	
-	my $user_id = $params->{user_id};
-	my $ltasker = $params->{ltasker};
+	my $user_id = $self->params->{user_id};
+	my $ltasker = $self->params->{ltasker};
 
 	my $user = LTasker::User->choose($ltasker->user_data->{user_id});
 

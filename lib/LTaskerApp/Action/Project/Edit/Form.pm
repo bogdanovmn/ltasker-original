@@ -7,17 +7,17 @@ use utf8;
 use LTasker::Project;
 
 sub main {
-	my ($class, $params) = @_;
+	my ($self) = @_;
 	
-	my $ltasker = $params->{ltasker};
+	my $ltasker = $self->params->{ltasker};
 
-	my $action = $params->{action} || "none";
-	my $project_name = $params->{name} || "";
-	my $project_description = $params->{description} || "";
-	my $project_id = $params->{project_id};
-	my $new_components = $params->{new_components};
-	my $component_id = $params->{component_id};
-	my $component_submit = $params->{component_submit};
+	my $action = $self->params->{action} || "none";
+	my $project_name = $self->params->{name} || "";
+	my $project_description = $self->params->{description} || "";
+	my $project_id = $self->params->{project_id};
+	my $new_components = $self->params->{new_components};
+	my $component_id = $self->params->{component_id};
+	my $component_submit = $self->params->{component_submit};
 
 #debug($cgi);
 
