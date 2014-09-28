@@ -1,7 +1,7 @@
 package LTaskerApp;
 
 use Dancer ':syntax';
-use Dancer::Plugin::Controller;
+use Dancer::Plugin::Controller '0.152';
 
 use LTasker;
 use Utils;
